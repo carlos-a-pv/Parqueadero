@@ -10,11 +10,18 @@ public class Parqueadero {
 	private int valorCuartoHoraCarro = 500;
 	private int valorHoraCarro = 1800;
 	
-	
-	public void setCuposCarros() {}
-	
+	public void setCuposCarros(int indice, int numero) {
+		this.cuposCarros[indice] = numero;
+	}
 	public int[] getCuposCarros(){
 		return this.cuposCarros;
+	}
+	public void setCuposMotos(int indice, int numero) {
+		this.cuposMotos[indice] = numero;
+	}
+	
+	public int[] getCuposMotos(){
+		return this.cuposMotos;
 	}
 
 }
