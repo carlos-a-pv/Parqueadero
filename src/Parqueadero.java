@@ -19,6 +19,33 @@ public class Parqueadero {
 		//Vehiculo vehiculo2 = new Vehiculo("moto", "abc" );
 		//RegistroParqueadero registro1 = new RegistroParqueadero(12, 3);
 		
+		public boolean administrarCupos(String tipoVehiculo){
+
+			if (tipoVehiculo.equals("carro")){
+				for (int i = 0; i < cuposCarros.length; i++) {
+					if(cuposCarros[i]==0) {
+						cuposCarros[i]=1;
+						return true;
+					}
+				}
+				return false;
+			}
+
+			else {
+				for (int i = 0; i < cuposMotos; i++) {
+
+					if(cuposMotos[i]==0) {
+						cuposMotos[i]=1;
+						return true;
+					}
+				}
+				return false;
+			}
+
+
+
+
+		}
 		
 		
 	}
