@@ -1,3 +1,4 @@
+import java.time.LocalTime;
 import java.util.Iterator;
 
 public class Main {
@@ -18,10 +19,17 @@ public class Main {
 		Vehiculo vehiculo1 = new Vehiculo("carro", "abc" );
 		if(parqueadero.administrarCupos(vehiculo1.getTipoVehiculo()) == true) {
 			System.out.println("SI HAY CUPO!!!");
+			vehiculo1.setHoraIngreso(13, 0);
+			vehiculo1.setHoraSalida(19, 0);
+			
+			LocalTime tiempoTotal = parqueadero.calcularTiempoTotal(vehiculo1.getHoraLlegada(), vehiculo1.getHoraSalida());
+			System.out.println("El tiempo final es: " +tiempoTotal);
+		}else{
+			System.out.println("NO HAY CUPO!!!");
+				
 		}
 		
-		vehiculo1.setHoraLlegada(12);
-		vehiculo1.setHoraSalida(14);
+		
 		
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
 		//Vehiculo vehiculo2 = new Vehiculo("moto", "abc" );

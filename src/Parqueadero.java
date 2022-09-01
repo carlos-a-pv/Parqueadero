@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.time.LocalTime;
 
 public class Parqueadero {
 	
@@ -15,30 +16,64 @@ public class Parqueadero {
 		//Vehiculo vehiculo2 = new Vehiculo("moto", "abc" );
 		//RegistroParqueadero registro1 = new RegistroParqueadero(12, 3);
 		
-		public boolean administrarCupos(String tipoVehiculo){
-
-			if (tipoVehiculo.equals("carro")){
-				for (int i = 0; i < cuposCarros.length; i++) {
-					if(cuposCarros[i]==0) {
-						cuposCarros[i]=1;
-						return true;
-					}
+	public boolean administrarCupos(String tipoVehiculo){
+		if (tipoVehiculo.equals("carro")){
+			for (int i = 0; i < cuposCarros.length; i++) {
+				if(cuposCarros[i]==0) {
+					cuposCarros[i]=1;
+					return true;
 				}
-				return false;
 			}
+			return false;
+		}
 
-			else {
-				for (int i = 0; i < cuposMotos.length; i++) {
+		else {
+			for (int i = 0; i < cuposMotos.length; i++) {
 
-					if(cuposMotos[i]==0) {
-						cuposMotos[i]=1;
-						return true;
-					}
+				if(cuposMotos[i]==0) {
+					cuposMotos[i]=1;
+					return true;
 				}
-				return false;
 			}
+			return false;
+		}
+	}
 
-
+	public LocalTime calcularTiempoTotal(LocalTime horaIngreso, LocalTime horaSalida) {
+		//Conversion de tipos de datos (de LocalTime a String)
+		String tiempo1 = String.valueOf(horaIngreso);
+		String tiempo2 = String.valueOf(horaSalida);
+		
+		//Division de las horas y los minutos de la hora de ingreso
+		String[] partsHoraIngreso = tiempo1.split(":");
+		String tiempoHoras1 = partsHoraIngreso[0];
+		String tiempoMinutos1 = partsHoraIngreso[1];
+		
+		//Division de las horas y los minutos de la hora de salida
+		String[] partsHoraSalida = tiempo2.split(":");
+		String tiempoHoras2 = partsHoraSalida[0];
+		String tiempoMinutos2 = partsHoraSalida[1];
+		
+		//Conversion de tipos de datos (de String a Int) para poder operar
+		int tiempoHora1Numero = Integer.parseInt(tiempoHoras1);
+		int tiempoMinutos1Numero = Integer.parseInt(tiempoMinutos1);
+		
+		int tiempoHora2Numero = Integer.parseInt(tiempoHoras2);
+		int tiempoMinutos2Numero = Integer.parseInt(tiempoMinutos2);
+		
+		//Calculo
+		int horasFinal = tiempoHora2Numero - tiempoHora1Numero;
+		int minutosFinal = tiempoMinutos2Numero - tiempoMinutos1Numero;
+		
+		//conversion de datos
+		//String horaFinalString = String.valueOf(horasFinal);
+		//String minutosFinalString = String.valueOf(minutosFinal);
+		//Unión de los dos Strings (horas y minutos)
+		//String tiempoFinal = String.join(horaFinalString,":",minutosFinalString);
+		LocalTime tiempoTotal = LocalTime.of(horasFinal, minutosFinal);
+		
+		return tiempoTotal;
+		
 	}
 	public void setCuposMotos(int indice, int numero) {
 		this.cuposMotos[indice] = numero;
@@ -52,5 +87,5 @@ public class Parqueadero {
 	}
 	public int[] getCuposCarros(){
 		return this.cuposCarros;
-
-}}
+	}
+}

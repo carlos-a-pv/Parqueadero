@@ -1,9 +1,11 @@
+import java.time.LocalTime;
+
 public class Vehiculo {
 	
 	private String placa = "";
 	private String tipoVehiculo = "";
-	private int horaLlegada;
-	private int horaSalida;
+	private LocalTime horaLlegada;
+	private LocalTime horaSalida;
 	
 	public Vehiculo(String tipoVehiculo, String placa) {
 		this.tipoVehiculo = tipoVehiculo;
@@ -14,17 +16,17 @@ public class Vehiculo {
 		return this.tipoVehiculo;
 	}
 	
-	public void setHoraLlegada(int horaLllegada) {
-		this.horaLlegada = horaLllegada;
+	public void setHoraIngreso(int horas, int minutos) {
+		this.horaLlegada = LocalTime.of(horas,minutos);
 	}
-	public void setHoraSalida(int horaSalida) {
-		this.horaSalida = horaSalida;
+	public void setHoraSalida(int horas, int minutos) {
+		this.horaSalida = LocalTime.of(horas,minutos);
 	}
 	
-	public int getHoraLlegada() {
+	public LocalTime getHoraLlegada() {
 		return this.horaLlegada;
 	}
-	public int getHoraSalida() {
+	public LocalTime getHoraSalida() {
 		return this.horaSalida;
 	}
 	
