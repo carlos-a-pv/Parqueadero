@@ -75,10 +75,47 @@ public class Parqueadero {
 		return tiempoTotal;
 		
 	}
+		
+		public double calcularValorTotal(Vehiculo vehiculo1,int tiempoTotal, String tipoVehiculo) {
+			
+			double valorTotal=0.0;
+			
+			if(vehiculo1.getTipoVehiculo().equals("carro")) {
+				
+				if (tiempoTotal<=15) {
+					valorTotal=tiempoTotal *500;
+				}
+				if(tiempoTotal>15 && tiempoTotal<=59) {
+					valorTotal=tiempoTotal *1000;
+				}
+				if(tiempoTotal==60) {
+					valorTotal=tiempoTotal *1800;
+				}
+			}
+				
+			else {
+				if (tiempoTotal<=15) {
+					valorTotal=tiempoTotal *200;
+				}
+				if(tiempoTotal>15 && tiempoTotal<=59) {
+					valorTotal=tiempoTotal *400;
+				}
+				if(tiempoTotal==60) {
+					valorTotal=tiempoTotal *700;
+				}	
+				
+			}	
+					
+			return valorTotal;
+			}
+			
+	
+	//Aqui lo que hace es por medio del metodo set es llenar el arreglo cuposMotos lo mismo con set carros
 	public void setCuposMotos(int indice, int numero) {
 		this.cuposMotos[indice] = numero;
 	}
 	
+	//con este metodo me retorna el arreglo cuposMotos y lo mismo hace en get carros
 	public int[] getCuposMotos(){
 		return this.cuposMotos;
 	}

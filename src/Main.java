@@ -29,6 +29,8 @@ public class Main {
 				
 		}
 		
+		System.out.println("El valor a pagar es: "+parqueadero.calcularValorTotal(vehiculo1, 15, "carro"));
+		
 		
 		
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
