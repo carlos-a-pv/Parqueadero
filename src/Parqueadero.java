@@ -83,30 +83,30 @@ public class Parqueadero {
 			if(vehiculo1.getTipoVehiculo().equals("carro")) {
 				
 				if (tiempoTotal<=15) {
-					valorTotal=tiempoTotal *500;
+					valorTotal=500;
 				}
 				if(tiempoTotal>15 && tiempoTotal<=59) {
-					valorTotal=tiempoTotal *1000;
+					valorTotal=1000;
 				}
 				if(tiempoTotal==60) {
-					valorTotal=tiempoTotal *1800;
+					valorTotal=1800;
 				}
 			}
 				
 			else {
 				if (tiempoTotal<=15) {
-					valorTotal=tiempoTotal *200;
+					valorTotal=200;
 				}
 				if(tiempoTotal>15 && tiempoTotal<=59) {
-					valorTotal=tiempoTotal *400;
+					valorTotal=400;
 				}
 				if(tiempoTotal==60) {
-					valorTotal=tiempoTotal *700;
+					valorTotal=700;
 				}	
 				
 			}	
 					
-			return valorTotal;
+			return valorTotal; 
 			}
 			
 	
