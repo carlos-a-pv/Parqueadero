@@ -19,19 +19,21 @@ public class Main {
 		Vehiculo vehiculo1 = new Vehiculo("carro", "abc" );
 		if(parqueadero.administrarCupos(vehiculo1.getTipoVehiculo()) == true) {
 			System.out.println("SI HAY CUPO!!!");
-			vehiculo1.setHoraIngreso(13, 0);
-			vehiculo1.setHoraSalida(19, 0);
+			vehiculo1.setHoraIngreso(0, 0);
+			vehiculo1.setHoraSalida(1, 20);
 			
 			LocalTime tiempoTotal = parqueadero.calcularTiempoTotal(vehiculo1.getHoraLlegada(), vehiculo1.getHoraSalida());
 			System.out.println("El tiempo final es: " +tiempoTotal);
+			
+			System.out.println(parqueadero.calcularValorTotal(tiempoTotal, vehiculo1.getTipoVehiculo()));
 		}else{
 			System.out.println("NO HAY CUPO!!!");
 				
 		}
 		
-		System.out.println("El valor a pagar es: "+parqueadero.calcularValorTotal(vehiculo1, 15, "carro"));
+	
 		
-		System.out.println("El valor a pagar es: "+parqueadero.calcularValorTotal(vehiculo1, 20, "carro"));
+		
 		
 		
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
